@@ -1,0 +1,117 @@
+/* common layout */
+.skip-navigation {
+    position:absolute;
+    z-index:9999;
+    a {
+        display:block;
+        width:1px;
+        height:1px;
+        margin:-1px;
+        overflow:hidden;
+    }
+}
+
+#container {
+    position:relative;
+    padding-top:80px;
+    @include tablet {
+        padding-top:56px;
+    }
+}
+
+/* dim */
+.common-dim {
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background:rgba(#000, 0.5);
+    z-index:1005;
+}
+
+/* nodata */
+.nodata {
+    display:block;
+    padding:80px 0;
+    text-align:center;
+    color:$gray;
+    @include font;
+    font-weight:500;
+    &::before {
+        content:' ';
+        display:block;
+        width:73px;
+        height:72px;
+        margin:0 auto 20px;
+        background:url('/images/@nodata.gif') center no-repeat;
+    }
+}
+
+/* star rating */
+.star-rating {
+    font-size:0;
+    text-align:center;
+    button.stars {
+        display:inline-block;
+        vertical-align:top;
+        width:40px;
+        height:30px;
+        background:url('/images/icon/icon-star-off.png') center no-repeat;
+        background-size:30px;
+        &.on,
+        &.hover {
+            background-image:url('/images/icon/icon-star-on.png');
+        }
+    }
+}
+
+/* tooltip */
+.tooltip-wrap {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    line-height:1;
+    z-index:10;
+    .tooltip {
+        display:inline-block;
+        vertical-align:top;
+        line-height:20px;
+        cursor:help;
+        &::after {
+            content:'?';
+            display:inline-block;
+            vertical-align:top;
+            width:20px;
+            height:20px;
+            margin-left:4px;
+            border:1px solid currentColor;
+            border-radius:50%;
+            color:currentColor;
+            line-height:18px;
+        }
+        &:hover {
+            + .tooltip-text {
+                display:block;
+            }
+        }
+    }
+    .tooltip-text {
+        display:none;
+        position:absolute;
+        top:100%;
+        right:0;
+        width:200px;
+        margin-top:4px;
+        padding:12px;
+        border:1px solid $border;
+        border-radius:4px;
+        background:#fff;
+        white-space:initial;
+        font-size:14px;
+        line-height:20px;
+        color:#888;
+        text-align:left;
+        word-break:keep-all;
+    }
+}
